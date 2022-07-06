@@ -1,5 +1,5 @@
 # OAI-5g-basic
-one line script file for deployong oai-5g-basic
+one line script file for deploying oai-5g-basic
 
 ## Before starting:
 **Make sure You have you have installed KIND or any other tool for making cluster. In this I have used KIND for making the cluster.** 
