@@ -18,6 +18,11 @@ Final step :
 ```
 ./oai-5g-basic.sh
 ```
+Now on the other terminal check the pods by running:
+```
+watch kubectl get pods -A
+```
+
 ## Things done in this script:
 * Created kind cluster
 * Used multus cni
