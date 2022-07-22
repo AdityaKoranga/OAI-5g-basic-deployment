@@ -1,36 +1,44 @@
-# OAI-5g-basic
-one line script file for deploying oai-5g-basic
+# OAI-5G-BASIC DEPLOYMENT
 
-## Before starting:
-**Make sure You have you have installed KIND or any other tool for making cluster. In this I have used KIND for making the cluster.** 
-* If you want to use any other tool for making cluster then change the line *kind create cluster* in the script file.
+## Prerequisites
 
-## Start Deploying:
-git clone:
+1. Install any tool for locally creating cluster. For this installation, we are going to use `kind` for creating cluster. Install from [here](https://kind.sigs.k8s.io/docs/user/quick-start/#installation).
+
+2. Install `kubectl` from [here](https://kubernetes.io/docs/tasks/tools/).
+
+3. Install this `helm-spray`.
+```bash
+helm plugin install https://github.com/ThalesGroup/helm-spray
+
+# check installed plugins
+helm plugin list
 ```
+
+4. Install `Multus` from [here](https://github.com/k8snetworkplumbingwg/multus-cni), OR follow the below steps:
+```bash
+git clone https://github.com/k8snetworkplumbingwg/multus-cni
+cd multus-cni
+cat ./deployments/multus-daemonset-thick-plugin.yml | kubectl apply -f -
+cd ../
+```
+
+## Installation
+
+### Clone Repository
+```bash
 git clone https://github.com/AdityaKoranga/OAI-5g-basic.git
-```
-Then:
-```
+#change directory
 cd OAI-5g-basic/
 ```
-Final step :
-```
+
+### Run Script
+```bash
+chmod 777 oai-5g-basic.sh
 ./oai-5g-basic.sh
 ```
-Now on the other terminal check the pods by running:
-```
+
+### Crosschecking
+On the other terminal, check the running pods:
+```bash
 watch kubectl get pods -A
 ```
-
-## Things done in this script:
-* Created kind cluster
-* Used multus cni
-* installed helm spray
-* Cloned https://gitlab.eurecom.fr/oai/cn5g/oai-cn5g-fed.git
-* Ran script file sync components
-* Changed host interface to "eth0" in the values.yaml file
-* Updated entries in the database oai_db-basic.sql
-* Helm dependency update
-* Finally deployed using helm spray.
-

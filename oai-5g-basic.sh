@@ -1,45 +1,36 @@
-#!/bin/bash
+# !/bin/bash
 
-install_helmspray()
-{
-	helm plugin install https://github.com/ThalesGroup/helm-spray
-	helm plugin list
-}
+set -e
+# Set –e is used within the Bash to stop execution instantly as a query exits while having a non-zero status.
 
-set -xe
-
-
-#start by making a cluster
+# create cluster
 kind create cluster
 
-#let's provide multus-cni
-git clone https://github.com/k8snetworkplumbingwg/multus-cni
-cd multus-cni
-cat ./deployments/multus-daemonset-thick-plugin.yml | kubectl apply -f -
-cd ../
 
-
-#install helm spray
-install_helmspray || true
-
-
-#oai-5g
+# oai-5g
 git clone  https://gitlab.eurecom.fr/oai/cn5g/oai-cn5g-fed.git
 cd oai-cn5g-fed/
 
-#resync to the last 'master' commit
+
+# resync to the last 'master' commit
 git fetch --prune
 git checkout master
 git rebase origin/master
 
-#let's run the script
+
+# run the script
 ./scripts/syncComponents.sh --nrf-branch develop --amf-branch develop \
                               --smf-branch develop --spgwu-tiny-branch develop \
                               --ausf-branch develop --udm-branch develop \
                               --udr-branch develop --upf-vpp-branch develop \
                               --nssf-branch ts
+
+# change entries
 cd ./charts/oai-5g-core/oai-5g-basic/
+
+
 sed -i 's/hostInterface: "ens2f0np0"/hostInterface: "eth0" / ' values.yaml
+# sed is a stream editor. A stream editor is used to perform basic text transformations on an input stream
 
 cd ../mysql/initialization/
 
@@ -63,6 +54,8 @@ sed -i " 157i ('208990100001125', '20899', '{\"sst\": 1, \"sd\": \"10203\"}','{\
 
 
 cd -
+
+# update helm dependency
 helm dependency update
 
 #deployment
