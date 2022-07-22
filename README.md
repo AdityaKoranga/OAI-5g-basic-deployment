@@ -4,7 +4,7 @@
 
 1. Install any tool for locally creating cluster. For this installation, we are going to use `kind` for creating cluster. Install from [here](https://kind.sigs.k8s.io/docs/user/quick-start/#installation).
 
-2. Install `kubectl` from [here](https://kubernetes.io/docs/tasks/tools/).
+2. `kubectl` allows you to run commands against Kubernetes clusters. Install `kubectl` from [here](https://kubernetes.io/docs/tasks/tools/).
 
 3. Install this `helm-spray`.
 ```bash
