@@ -27,6 +27,7 @@ cd ../
 ### Clone Repository
 ```bash
 git clone https://github.com/AdityaKoranga/OAI-5g-basic.git
+
 #change directory
 cd OAI-5g-basic/
 ```
