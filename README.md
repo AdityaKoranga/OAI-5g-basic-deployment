@@ -4,7 +4,7 @@
 
 1. Install any tool for locally creating cluster. For this installation, we are going to use `kind` for creating cluster. Install from [here](https://kind.sigs.k8s.io/docs/user/quick-start/#installation).
 
-2. Install `kubectl` from [here](https://kubernetes.io/docs/tasks/tools/).
+2. `kubectl` allows you to run commands against Kubernetes clusters. Install `kubectl` from [here](https://kubernetes.io/docs/tasks/tools/).
 
 3. Install this `helm-spray`.
 ```bash
@@ -14,7 +14,7 @@ helm plugin install https://github.com/ThalesGroup/helm-spray
 helm plugin list
 ```
 
-4. Install `Multus` from [here](https://github.com/k8snetworkplumbingwg/multus-cni), OR follow the below steps:
+4. Install `Multus` from [here](https://github.com/k8snetworkplumbingwg/multus-cni), or just follow the below steps:
 ```bash
 git clone https://github.com/k8snetworkplumbingwg/multus-cni
 cd multus-cni
@@ -38,7 +38,7 @@ chmod 777 oai-5g-basic.sh
 ./oai-5g-basic.sh
 ```
 
-### Crosschecking
+### Crosscheck
 On the other terminal, check the running pods:
 ```bash
 watch kubectl get pods -A
