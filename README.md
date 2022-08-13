@@ -22,7 +22,7 @@ cat ./deployments/multus-daemonset-thick-plugin.yml | kubectl apply -f -
 cd ../
 ```
 
-## Installation
+## Installation 
 
 ### Clone Repository
 ```bash
