@@ -1,6 +1,6 @@
 # OAI-5G-BASIC DEPLOYMENT
 
-## Pre-requisites
+## Prerequisites
 
 1. Install any tool for locally creating cluster. For this installation, we are going to use `kind` for creating cluster. Install from [here](https://kind.sigs.k8s.io/docs/user/quick-start/#installation).
 
