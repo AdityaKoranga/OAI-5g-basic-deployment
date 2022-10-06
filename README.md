@@ -34,8 +34,7 @@ cd OAI-5g-basic/
 
 ### Run Script
 ```bash
-chmod 777 oai-5g-basic.sh
-./oai-5g-basic.sh
+bash oai-5g-basic.sh
 ```
 
 ### Crosscheck
